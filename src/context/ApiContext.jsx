@@ -7,8 +7,17 @@ const GlobalContext=createContext(null)
 
 export const GlobalState = ({children})=>{
     const[location,setLocation]=useState({})
+    const[toggleSubMenu,setToggleSubMenu]=useState(false)
 
-    return <GlobalContext.Provider value={{setLocation,location}} >
+    function openSubmenu(){
+        setToggleSubMenu(true)
+    }
+
+    function closeSubMenu(){
+        setToggleSubMenu(false)
+    }
+
+    return <GlobalContext.Provider value={{setLocation,location,closeSubMenu,openSubmenu,toggleSubMenu}} >
         {children}
     </GlobalContext.Provider>
 }

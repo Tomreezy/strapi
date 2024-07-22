@@ -13,16 +13,19 @@ const pages=sublinks.map(item=> item.page)
 const NavBar = () => {
     const[hoverIndex,setHoverIndex]=useState(null)
     const[openMenu,setOpenMenu]=useState(false) 
-    const{setLocation}=useGlobalState() 
+    const{setLocation,openSubmenu}=useGlobalState() 
 
     function targetButton(e){
       const nodeTarget=e.target
       const dimensions = nodeTarget?.getBoundingClientRect()
-      const bottom = dimensions.bottom
-      const center = (dimensions.left+dimensions.right)/2
-      setLocation({center,bottom})
+      const bottom = dimensions.bottom+5
+      const left = dimensions.left
+      setLocation({left,bottom})
+      openSubmenu()
       
     }
+
+
 
   return (
     <div>

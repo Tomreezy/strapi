@@ -4,7 +4,7 @@ import SubMenu from "./components/SubMenu"
 
 const App = () => {
   return (
-    <div>
+    <div className="h-screen w-screen">
     <NavBar />
     <SubMenu />
     </div>
