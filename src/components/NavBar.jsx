@@ -40,7 +40,7 @@ const NavBar = () => {
         <div className=" hidden sm:flex space-x-4">
           {pages.map((page,index)=>{
            
-            return <p onMouseLeave={()=>setHoverIndex(null)} onMouseOver={targetButton} onMouseEnter={()=>setHoverIndex(index)} className=" relative show cursor-pointer" key={index}>{page}</p>
+            return <p onMouseLeave={()=>setHoverIndex(null)} onMouseOver={targetButton} onMouseEnter={()=>setHoverIndex(index)} className=" relative show font-light p-2 rounded-md transition-all duration-300 hover:bg-indigo-300 cursor-pointer" key={index}>{page}</p>
           })}
         </div>
         <div className="sm:flex hidden">

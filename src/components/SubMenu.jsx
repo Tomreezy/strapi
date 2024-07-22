@@ -17,11 +17,11 @@ const SubMenu = () => {
     }, [location]);
 
     return (
-        <div className=" border-solid">
-            {toggleSubMenu && <div ref={menu} className="absolute translate-all rounded-md border border-solid border-indigo-400 rounded=md duration-500  ">
+        <div className="bg-white border-solid">
+            {toggleSubMenu && <div ref={menu} className="absolute bg-white translate-all rounded-md border border-solid border-indigo-400 rounded=md duration-500  ">
             {
                 onePageLinks?.links?.map((link,index)=>{
-                    return <p className="my-3 cursor-pointer px-2 hover:bg-indigo-400 transition-all duration-400 hover:text-white    font-medium text-lg hover:indent-1 ">{link.label}</p>
+                    return <p className="my-3 cursor-pointer px-2 hover:bg-indigo-400 transition-all duration-400 hover:text-white    font-thin text-lg hover:indent-1 ">{link.label}</p>
                 })
             }
         </div>}
