@@ -7,7 +7,6 @@ const SubMenu = () => {
     const { location,toggleSubMenu,onePageLinks } = useGlobalState();
     const menu = useRef(null);
 
-    const{links}=onePageLinks
    
     useEffect(() => {
         if (menu.current && location) {
@@ -18,11 +17,11 @@ const SubMenu = () => {
     }, [location]);
 
     return (
-        <div>
-            {toggleSubMenu && <div ref={menu} className="absolute translate-all rounded=md duration-500  border-2 border-indigo-300 border-solid">
+        <div className=" border-solid">
+            {toggleSubMenu && <div ref={menu} className="absolute translate-all rounded-md border border-solid border-indigo-400 rounded=md duration-500  ">
             {
-                links.map((link,index)=>{
-                    return <p className="p-4 font-medium text-lg hover:indent-1 bg-indigo-300">{link.label}</p>
+                onePageLinks?.links?.map((link,index)=>{
+                    return <p className="my-3 cursor-pointer px-2 hover:bg-indigo-400 transition-all duration-400 hover:text-white    font-medium text-lg hover:indent-1 ">{link.label}</p>
                 })
             }
         </div>}

@@ -1,3 +1,4 @@
+import Hero from "./components/Hero"
 import NavBar from "./components/NavBar"
 import SubMenu from "./components/SubMenu"
 
@@ -7,6 +8,7 @@ const App = () => {
     <div className="h-screen w-screen">
     <NavBar />
     <SubMenu />
+    <Hero />
     </div>
   )
 }
