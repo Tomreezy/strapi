@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { createContext } from "react";
 import { useState } from "react";
+import sublinks from "../data/data";
 
 const GlobalContext=createContext(null)
 
@@ -8,6 +9,8 @@ const GlobalContext=createContext(null)
 export const GlobalState = ({children})=>{
     const[location,setLocation]=useState({})
     const[toggleSubMenu,setToggleSubMenu]=useState(false)
+
+    const[onePageLinks,setOnePageLinks]=useState({links:[],page:""})
 
     function openSubmenu(){
         setToggleSubMenu(true)
@@ -17,7 +20,15 @@ export const GlobalState = ({children})=>{
         setToggleSubMenu(false)
     }
 
-    return <GlobalContext.Provider value={{setLocation,location,closeSubMenu,openSubmenu,toggleSubMenu}} >
+    function handleData(loc,locate){
+        setLocation(locate)
+        console.log(loc)
+        console.log(sublinks)
+
+        const oneObject = sublinks.find(item => item.page === loc.trim() );
+        setOnePageLinks(oneObject)
+    }
+    return <GlobalContext.Provider value={{onePageLinks,setLocation,handleData,location,closeSubMenu,openSubmenu,toggleSubMenu}} >
         {children}
     </GlobalContext.Provider>
 }

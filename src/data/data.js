@@ -25,7 +25,7 @@ const sublinks = [
     ],
   },
   {
-    page: 'company',
+    page: 'blog',
     links: [
       { label: 'about', url: '/products' },
       { label: 'customers', url: '/products' },

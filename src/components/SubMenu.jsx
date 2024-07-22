@@ -4,9 +4,11 @@ import { useGlobalState } from "../context/ApiContext";
 import sublinks from "../data/data";
 
 const SubMenu = () => {
-    const { location,toggleSubMenu } = useGlobalState();
+    const { location,toggleSubMenu,onePageLinks } = useGlobalState();
     const menu = useRef(null);
 
+    const{links}=onePageLinks
+   
     useEffect(() => {
         if (menu.current && location) {
             const { left, bottom } = location;
@@ -17,8 +19,12 @@ const SubMenu = () => {
 
     return (
         <div>
-            {toggleSubMenu && <div ref={menu} className="absolute translate-all duration-500  border-2 border-indigo-300 border-solid">
-            the menu
+            {toggleSubMenu && <div ref={menu} className="absolute translate-all rounded=md duration-500  border-2 border-indigo-300 border-solid">
+            {
+                links.map((link,index)=>{
+                    return <p className="p-4 font-medium text-lg hover:indent-1 bg-indigo-300">{link.label}</p>
+                })
+            }
         </div>}
         </div>
     );

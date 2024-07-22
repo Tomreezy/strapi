@@ -13,14 +13,15 @@ const pages=sublinks.map(item=> item.page)
 const NavBar = () => {
     const[hoverIndex,setHoverIndex]=useState(null)
     const[openMenu,setOpenMenu]=useState(false) 
-    const{setLocation,openSubmenu}=useGlobalState() 
+    const{setLocation,handleData,openSubmenu}=useGlobalState() 
 
     function targetButton(e){
       const nodeTarget=e.target
+      const page= nodeTarget.textContent
       const dimensions = nodeTarget?.getBoundingClientRect()
       const bottom = dimensions.bottom+5
       const left = dimensions.left
-      setLocation({left,bottom})
+      handleData(page,{left,bottom})
       openSubmenu()
       
     }
@@ -35,7 +36,7 @@ const NavBar = () => {
         <div className=" hidden sm:flex space-x-4">
           {pages.map((page,index)=>{
            
-            return <p onMouseLeave={()=>setHoverIndex(null)} onMouseOver={targetButton} onMouseEnter={()=>setHoverIndex(index)} className=" relative cursor-pointer" key={index}>{page} <div className={`${hoverIndex ===index ?"absolute bottom-0 left-0 h-[2px] w-full  bg-indigo-400 animate-line rounded-md":"bg-transparent"}`}></div></p>
+            return <p onMouseLeave={()=>setHoverIndex(null)} onMouseOver={targetButton} onMouseEnter={()=>setHoverIndex(index)} className=" relative cursor-pointer" key={index}>{page}<div className={`${hoverIndex ===index ?"absolute bottom-0 left-0 h-[2px] w-full  bg-indigo-400 animate-line rounded-md":"bg-transparent"}`}></div></p>
           })}
         </div>
         <div className="sm:flex hidden">
